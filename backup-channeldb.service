@@ -1,0 +1,12 @@
+[Service]
+ExecStart=/home/dev/safechannels/backup-channeldb.sh
+Restart=always
+RestartSec=1
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=backup-channeldb
+User=dev
+Group=dev
+
+[Install]
+WantedBy=multi-user.target

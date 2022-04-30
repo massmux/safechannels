@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo mount -t cifs -o user=u298AAA,pass=XXXX,uid=1000,gid=1000,dir_mode=0770 //u298AAA.XXXX/backup /mnt/backup/

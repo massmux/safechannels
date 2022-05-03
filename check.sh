@@ -25,7 +25,7 @@ Ochannelbksum=`sha256sum $BACKUPDIR/channel.backup |cut -f1 -d" "`
 
 printf "\n==== Files Check ===="
 
-printf "\n[wallet.db]"
+printf "\n[wallet.db]\n"
 if [ "$walletsum" == "$Owalletsum" ]; then
     echo "wallet.db matches with backup."
 else
@@ -34,7 +34,7 @@ fi
 echo "Original file sha256: $Owalletsum"
 echo "Backup   file sha256: $walletsum"
 
-printf "\n[channel.db]"
+printf "\n[channel.db]\n"
 if [ "$channelsum" == "$Ochannelsum" ]; then
     echo "channel.db matches with backup."
 else
@@ -43,7 +43,7 @@ fi
 echo "Original file sha256: $Ochannelsum"
 echo "Backup   file sha256: $channelsum"
 
-printf "\n[channel-backup]"
+printf "\n[channel-backup]\n"
 if [ "$channelbksum" == "$Ochannelbksum" ]; then
     echo "channel-backup matches with backup."
 else

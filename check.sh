@@ -10,17 +10,17 @@ ls -la $BASEDIR/chain/bitcoin/mainnet/wallet.db
 ls -la $BASEDIR/graph/mainnet/channel.db
 ls -la $BASEDIR/chain/bitcoin/mainnet/channel.backup
 
-walletsum=`cat /mnt/backup/o.wallet.db.sha256`
-channelsum=`cat /mnt/backup/o.channel.db.sha256`
-channelbksum=`cat /mnt/backup/o.channel.backup.sha256`
+Owalletsum=`cat /mnt/backup/o.wallet.db.sha256`
+Ochannelsum=`cat /mnt/backup/o.channel.db.sha256`
+Ochannelbksum=`cat /mnt/backup/o.channel.backup.sha256`
 
 
 printf "\n==== Backup files ====\n"
 ls -la $BACKUPDIR
 
-Owalletsum=`sha256sum $BACKUPDIR/wallet.db |cut -f1 -d" "`
-Ochannelsum=`sha256sum $BACKUPDIR/channel.db |cut -f1 -d" "`
-Ochannelbksum=`sha256sum $BACKUPDIR/channel.backup |cut -f1 -d" "`
+walletsum=`sha256sum $BACKUPDIR/wallet.db |cut -f1 -d" "`
+channelsum=`sha256sum $BACKUPDIR/channel.db |cut -f1 -d" "`
+channelbksum=`sha256sum $BACKUPDIR/channel.backup |cut -f1 -d" "`
 
 
 printf "\n==== Files Check ===="

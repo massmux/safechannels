@@ -16,9 +16,9 @@ orig="/mnt/bvb-volume/umbrel/lnd/data/graph/mainnet"
 dest="/mnt/backup"
 thefile="channel.db"
 
-cp $orig/$thefile $dest/
-channelsum=`sha256sum $orig/$thefile |cut -f1 -d" "`
-echo $channelsum > $dest/o.$thefile.sha256
+##cp $orig/$thefile $dest/
+##channelsum=`sha256sum $orig/$thefile |cut -f1 -d" "`
+##echo $channelsum > $dest/o.$thefile.sha256
 
 
 # backups wallet.db file
@@ -28,7 +28,7 @@ thefile="wallet.db"
 app="/mnt/bvb-volume/umbrel/app-data"
 
 
-cp $orig/$thefile /mnt/backup/
+cp $orig/$thefile $dest
 walletsum=`sha256sum $orig/$thefile |cut -f1 -d" "`
 echo $walletsum > $dest/o.$thefile.sha256
 rsync -av $app/lnbits/ $dest/lnbits/

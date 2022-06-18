@@ -1,11 +1,20 @@
 # Channels backup on Umbrel
 
 
-This is a collection of scripts for backing up all necessary on your Umbrel install. Initial script from Alex Bosworth, I decided to extend the copy on a remote cifs share and for all the important files.
+This is a collection of scripts for backing up all necessary on your Umbrel install. Initial script from Alex Bosworth, I decided to extend the copy on a remote cifs share and for all the important files. Forked, rearranged and completed from Alex Bosworth
 
 So three different monitoring enabled because of different update times each one has.
 
 ## Install
+
+### Requirements
+
+```
+sudo apt-get update
+sudo apt-get install inotify-tools
+```
+
+### Procedure
 
 clone repo on user's home (user running umbrel). then cd the directory and
 

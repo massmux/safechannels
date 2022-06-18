@@ -5,3 +5,47 @@ This is a collection of scripts for backing up all necessary on your Umbrel inst
 
 So three different monitoring enabled because of different update times each one has.
 
+## Install
+
+clone repo on user's home (user running umbrel). then cd the directory and
+
+```
+cp backup-channels.service /etc/systemd/system/backup-channels.service
+chmod +x /etc/systemd/system/backup-channels.service
+```
+
+
+```
+cp backup-walletdb.service /etc/systemd/system/backup-walletdb.service
+chmod +x /etc/systemd/system/backup-walletdb.service
+```
+
+now reload the daemon
+
+```
+sudo systemctl daemon-reload
+
+```
+
+Change the mount script to mount you external partition. Hereafter we will suppose that your external partition is mounted on /mnt/backup
+
+Now start the services
+
+```
+sudo systemctl start backup-channels.service 
+sudo systemctl start backup-walletdb.service 
+```
+
+Note: the backup-walletdb.sh script is backupping also lnbits database. In case you dont have lnbits you can choose to comment the command.
+Note: before running the script be sure that backup partition is mounted and umbrel services are running
+
+## Checks
+
+to check if the backups are ok, just run
+
+```
+./check.sh
+```
+
+inside the safechannel dir. There is a sha256 hash checksum check on files
+

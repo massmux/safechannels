@@ -38,7 +38,7 @@ printf "\n[channel.db]\n"
 if [ "$channelsum" == "$Ochannelsum" ]; then
     echo "channel.db matches with backup."
 else
-    echo "!! channel.db does NOT match with backup."
+    echo "!! channel.db does NOT match with backup. This is normal while system running"
 fi
 echo "Original file sha256: $Ochannelsum"
 echo "Backup   file sha256: $channelsum"

@@ -49,3 +49,8 @@ to check if the backups are ok, just run
 
 inside the safechannel dir. There is a sha256 hash checksum check on files
 
+
+## Notes
+
+1. tested on 0.4.18 version of umbrel
+2. this is a script not meant for newbies. Doing errors on channels backup is very risky. be sure to know what are you doing, otherwise do not use it. We carry no liability on whatever use you do of this script

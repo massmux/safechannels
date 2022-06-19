@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASEDIR=/mnt/data/umbrel/lnd/data
+BASEDIR=/mnt/data/umbrel/app-data/lightning/data/lnd/data
 BACKUPDIR=/mnt/backup
 
 clear

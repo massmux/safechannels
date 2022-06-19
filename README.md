@@ -21,14 +21,14 @@ Then cd the `safechannels` directory and run the following commands:
 
 Copy backup-channel service
 ```
-cp backup-channels.service /etc/systemd/system/
-chmod +x /etc/systemd/system/backup-channels.service
+sudo cp backup-channels.service /etc/systemd/system/
+sudo chmod +x /etc/systemd/system/backup-channels.service
 ```
 
 Copy backup-walletdb service
 ```
-cp backup-walletdb.service /etc/systemd/system/
-chmod +x /etc/systemd/system/backup-walletdb.service
+sudo cp backup-walletdb.service /etc/systemd/system/
+sudo chmod +x /etc/systemd/system/backup-walletdb.service
 ```
 
 now reload the systemd daemon
@@ -47,6 +47,11 @@ sudo mount /dev/sdb1 /mnt/backup
 
 Replace `/dev/sdb1` with your USB partition name.
 Find the correct partition name using `sudo fdisk -l`
+
+Change the owner:
+```
+sudo chown umbrel. /mnt/backup
+```
 
 
 Now start the services

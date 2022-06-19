@@ -14,29 +14,45 @@ sudo apt-get update
 sudo apt-get install inotify-tools
 ```
 
-### Procedure
+### Installation
 
-clone repo on user's home (user running umbrel). then cd the directory and
+Clone the repo to the home of the umbrel user. 
+Then cd the `safechannels` directory and run the following commands:
 
+Copy backup-channel service
 ```
-cp backup-channels.service /etc/systemd/system/backup-channels.service
-chmod +x /etc/systemd/system/backup-channels.service
-```
-
-
-```
-cp backup-walletdb.service /etc/systemd/system/backup-walletdb.service
-chmod +x /etc/systemd/system/backup-walletdb.service
+sudo cp backup-channels.service /etc/systemd/system/
+sudo chmod +x /etc/systemd/system/backup-channels.service
 ```
 
-now reload the daemon
+Copy backup-walletdb service
+```
+sudo cp backup-walletdb.service /etc/systemd/system/
+sudo chmod +x /etc/systemd/system/backup-walletdb.service
+```
+
+now reload the systemd daemon
 
 ```
 sudo systemctl daemon-reload
-
 ```
 
-Change the mount script to mount you external partition. Hereafter we will suppose that your external partition is mounted on /mnt/backup
+Mount the backup destination at `/mnt/backup`, you can user an USB stick or a network drive.
+
+To mount the usb stick run:
+
+```
+sudo mount /dev/sdb1 /mnt/backup
+```
+
+Replace `/dev/sdb1` with your USB partition name.
+Find the correct partition name using `sudo fdisk -l`
+
+Change the owner:
+```
+sudo chown umbrel. /mnt/backup
+```
+
 
 Now start the services
 
@@ -50,7 +66,17 @@ Note: before running the script be sure that backup partition is mounted and umb
 
 ## Checks
 
-to check if the backups are ok, just run
+To check if the service are working you can force the backup by simulating an access to the files:
+```bash
+# Example:
+
+# Wallet file
+touch -c -a umbrel/app-data/lightning/data/lnd/data/chain/bitcoin/mainnet/wallet.db
+
+touch -c -a umbrel/app-data/lightning/data/lnd/data/chain/bitcoin/mainnet/channel.backup
+```
+
+To check if the backups are ok, just run
 
 ```
 ./check.sh
@@ -61,6 +87,6 @@ inside the safechannel dir. There is a sha256 hash checksum check on files
 
 ## Notes
 
-1. tested on 0.4.18 version of umbrel
-2. this is a script not meant for newbies. Doing errors on channels backup is very risky. be sure to know what you are doing, otherwise do not use it. We carry no liability on whatever use you do of this script
-3. do not use on a local partition, it would make no sense. Connect an external device and mount it on /mnt/backup
+1. Tested on 0.5 version of Umbrel
+2. This is a script not meant for newbies. Doing errors on channels backup is very risky. be sure to know what you are doing, otherwise do not use it. We carry no liability on whatever use you do of this script
+3. Do not use on a local partition, it would make no sense. Connect an external device and mount it on /mnt/backup

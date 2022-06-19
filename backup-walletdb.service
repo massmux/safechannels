@@ -1,12 +1,12 @@
 [Service]
-ExecStart=/home/dev/safechannels/backup-walletdb.sh
+ExecStart=/home/umbrel/safechannels/backup-walletdb.sh
 Restart=always
 RestartSec=1
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=backup-walletdb
-User=dev
-Group=dev
+User=umbrel
+Group=umbrel
 
 [Install]
 WantedBy=multi-user.target

@@ -1,12 +1,12 @@
 [Service]
-ExecStart=/home/umbrel/safechannels/backup-channels.sh
+ExecStart=/home/dev/safechannels/backup-channels.sh
 Restart=always
 RestartSec=1
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=backup-channels
-User=umbrel
-Group=umbrel
+User=dev
+Group=dev
 
 [Install]
 WantedBy=multi-user.target

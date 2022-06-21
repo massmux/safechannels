@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # backup of channel.backup file
-orig="/mnt/data/umbrel/app-data/lightning/data/lnd/data/chain/bitcoin/mainnet"
+orig="/mnt/bvb-volume/umbrel/lnd/data/chain/bitcoin/mainnet"
 dest="/mnt/backup"
 thefile="channel.backup"
 
@@ -13,5 +13,7 @@ while true; do
     echo $channelssum > $dest/o.$thefile.sha256
 done
 
-# file location
+# systemd
 # /etc/systemd/system/backup-channels.service
+
+

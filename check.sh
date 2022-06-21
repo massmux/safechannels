@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASEDIR=/mnt/data/umbrel/app-data/lightning/data/lnd/data
+BASEDIR=/mnt/bvb-volume/umbrel/lnd/data
 BACKUPDIR=/mnt/backup
 
 clear
@@ -51,3 +51,5 @@ else
 fi
 echo "Original file sha256: $Ochannelbksum"
 echo "Backup   file sha256: $channelbksum"
+
+

@@ -1,4 +1,4 @@
-# Channels backup on Umbrel
+# Channels backup on Umbrel (umbrel 0.4.18)
 
 
 This is a collection of scripts for backing up all necessary on your Umbrel install. Initial script from Alex Bosworth, I decided to extend the copy on a remote cifs share and for all the important files. Forked, rearranged and completed from Alex Bosworth
@@ -61,6 +61,6 @@ inside the safechannel dir. There is a sha256 hash checksum check on files
 
 ## Notes
 
-1. tested on 0.4.18 version of umbrel
-2. this is a script not meant for newbies. Doing errors on channels backup is very risky. be sure to know what you are doing, otherwise do not use it. We carry no liability on whatever use you do of this script
-3. do not use on a local partition, it would make no sense. Connect an external device and mount it on /mnt/backup
+1. Tested on 0.4.18 version of umbrel
+2. This is a script not meant for newbies. Doing errors on channels backup is very risky. be sure to know what you are doing, otherwise do not use it. We carry no liability on whatever use you do of this script
+3. Do not use on a local partition, it would make no sense. Connect an external device and mount it on /mnt/backup
